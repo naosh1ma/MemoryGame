@@ -15,7 +15,6 @@ This is a simple implementation of a Memory Game in Java using Swing. The game f
 
 - [ ] 2 player game
 - [ ] Database support
-- [ ] Weather API
 - [X] Score tracking
 - [X] Reset button to restart the game
 
