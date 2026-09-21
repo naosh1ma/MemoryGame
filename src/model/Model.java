@@ -34,7 +34,7 @@ public class Model {
         this.rows = rows;
         this.cols = cols;
         this.diff = rows * cols;
-        System.out.println(this.rows + " " + this.cols + " " + this.diff);
+        //System.out.println(this.rows + " " + this.cols + " " + this.diff);
     }
 
     public void initGame() {

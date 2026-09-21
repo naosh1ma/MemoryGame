@@ -13,7 +13,6 @@ public class PanelSettings extends JPanel {
     JCheckBox chckbxTheme2;
     JCheckBox chckbxTheme3;
     JCheckBox chckbxTheme4;
-    JCheckBox chckbxTheme5;
     JComboBox comboBoxPlayer;
     JButton btnStart;
     JButton btnBack;
@@ -31,7 +30,6 @@ public class PanelSettings extends JPanel {
         chckbxTheme2 = new JCheckBox("Sport");
         chckbxTheme3 = new JCheckBox("Flaggen");
         chckbxTheme4 = new JCheckBox("Tiere");
-        chckbxTheme5 = new JCheckBox("Flugzeuge");
         btnStart = new JButton("Start");
         btnBack = new JButton("Zurück");
         comboBoxPlayer = new JComboBox();
@@ -46,7 +44,6 @@ public class PanelSettings extends JPanel {
         chckbxTheme2.setFont(new Font("Arial", Font.PLAIN, 20));
         chckbxTheme3.setFont(new Font("Arial", Font.PLAIN, 20));
         chckbxTheme4.setFont(new Font("Arial", Font.PLAIN, 20));
-        chckbxTheme5.setFont(new Font("Arial", Font.PLAIN, 20));
         comboBoxPlayer.setFont(new Font("Arial", Font.PLAIN, 20));
         btnStart.setFont(new Font("Arial", Font.PLAIN, 20));
         btnBack.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -59,7 +56,6 @@ public class PanelSettings extends JPanel {
         chckbxTheme2.setBounds(480, 260, 110, 30);
         chckbxTheme3.setBounds(480, 300, 110, 30);
         chckbxTheme4.setBounds(480, 340, 110, 30);
-        chckbxTheme5.setBounds(480, 380, 120, 30);
         comboBoxPlayer.setBounds(110, 220, 190, 30);
         btnStart.setBounds(490, 500, 120, 40);
         btnBack.setBounds(125, 500, 120, 40);
@@ -71,7 +67,6 @@ public class PanelSettings extends JPanel {
         this.add(chckbxTheme2);
         this.add(chckbxTheme3);
         this.add(chckbxTheme4);
-        this.add(chckbxTheme5);
         this.add(comboBoxPlayer);
         this.add(btnStart);
         this.add(btnBack);
@@ -86,6 +81,5 @@ public class PanelSettings extends JPanel {
         chckbxTheme2.addActionListener(listener);
         chckbxTheme3.addActionListener(listener);
         chckbxTheme4.addActionListener(listener);
-        chckbxTheme5.addActionListener(listener);
     }
 }
