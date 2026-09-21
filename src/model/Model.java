@@ -10,12 +10,15 @@ public class Model {
 
     Random random;
 
+    private String playerName;
+    private String playerName2;
     private int rows;
     private int cols;
     private int diff;
     private int scoreSingle;
     private int scoreMulti_1;
     private int scoreMulti_2;
+    private int currentPlayer;
     private int openCount;
     private int pairsFound;
     private int[] openedCards = {-1, -1};
@@ -23,8 +26,8 @@ public class Model {
     private ArrayList<String> themes;
     private ArrayList<ImageIcon> cardsFront;
 
-    private final String BACK_PATH = "MemoryGame/icons/back.png";
-    private final String FRONT_PATH = "MemoryGame/icons/";
+    private final String BACK_PATH = "icons/back.png";
+    private final String FRONT_PATH = "icons/";
 
     public void createGame(int rows, int cols) {
         themes = new ArrayList<>();
@@ -36,9 +39,7 @@ public class Model {
 
     public void initGame() {
         random = new Random();
-        scoreSingle = 100;
-        openCount = 0;
-        pairsFound = 0;
+        resetState();
         cardsBack = new ImageIcon(new ImageIcon(BACK_PATH).getImage().getScaledInstance(
                 getBackWidth(), getBackHeight(), Image.SCALE_SMOOTH));
     }
@@ -56,8 +57,38 @@ public class Model {
     }
 
     public void newStart() {
-        this.scoreSingle = 100;
+        resetState();
         Collections.shuffle(cardsFront);
+    }
+
+    private void resetState() {
+        scoreSingle = 100;
+        scoreMulti_1 = 0;
+        scoreMulti_2 = 0;
+        currentPlayer = 1;
+        pairsFound = 0;
+        resetOpenedCards();
+    }
+
+    public boolean isMultiplayer() {return playerName2 != null;}
+
+    public void switchPlayer() {currentPlayer = currentPlayer == 1 ? 2 : 1;}
+
+    public void addPairToCurrentPlayer() {
+        if (currentPlayer == 1) {
+            scoreMulti_1++;
+        } else {
+            scoreMulti_2++;
+        }
+    }
+
+    public String getCurrentPlayerName() {return currentPlayer == 1 ? playerName : playerName2;}
+
+    public String getWinnerName() {
+        if (scoreMulti_1 == scoreMulti_2) {
+            return null;
+        }
+        return scoreMulti_1 > scoreMulti_2 ? playerName : playerName2;
     }
 
     public void setOpenCard(int index) {
@@ -79,12 +110,11 @@ public class Model {
     }
 
     public void decreaseScore() {
-        if (getDiff() == 20) {
-            scoreSingle = scoreSingle - 5;}
-        if (getDiff() == 36) {
-            scoreSingle = scoreSingle - 3;}
-        if (getDiff() == 64) {
-            scoreSingle = scoreSingle - 1;}
+        int decrement = 0;
+        if (getDiff() == 20) {decrement = 5;}
+        if (getDiff() == 36) {decrement = 3;}
+        if (getDiff() == 64) {decrement = 1;}
+        scoreSingle = Math.max(0, scoreSingle - decrement);
     }
 
     public int getFrontWidth() {
@@ -119,6 +149,14 @@ public class Model {
         return size;
     }
 
+    public void setPlayerName(String playerName) {this.playerName = playerName;}
+    public String getPlayerName() {return playerName;}
+    public void setPlayerName2(String playerName2) {this.playerName2 = playerName2;}
+    public String getPlayerName2() {return playerName2;}
+    public int getCurrentPlayer() {return currentPlayer;}
+    public int getScoreMulti1() {return scoreMulti_1;}
+    public int getScoreMulti2() {return scoreMulti_2;}
+    public boolean hasThemes() {return !themes.isEmpty();}
     public void setThemes(String theme) {themes.add(theme);}
     public ImageIcon getIcon(int index) {return cardsFront.get(index);}
     public ImageIcon getCardsBack() {return cardsBack;}

@@ -32,11 +32,12 @@ public class PanelMenu extends JPanel{
         btnGameHard.setFont(new Font("Arial", Font.PLAIN, 20));
         btnRangList.setFont(new Font("Arial", Font.PLAIN, 20));
 
-        lblWelcome.setBounds(180, 75, 400, 80);
-        btnGameEasy.setBounds(125, 300, 120, 40);
-        btnGameNorm.setBounds(125, 370, 120, 40);
-        btnGameHard.setBounds(125, 440, 120, 40);
-        btnRangList.setBounds(300, 480, 120, 40);
+        lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
+        lblWelcome.setBounds(0, 90, 734, 80);
+        btnGameEasy.setBounds(267, 230, 200, 45);
+        btnGameNorm.setBounds(267, 295, 200, 45);
+        btnGameHard.setBounds(267, 360, 200, 45);
+        btnRangList.setBounds(267, 450, 200, 45);
         btnAdmin.setBounds(620,10,100,60);
 
         // make button invisible but clickable

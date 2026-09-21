@@ -51,7 +51,8 @@ public class PanelSettings extends JPanel {
         btnStart.setFont(new Font("Arial", Font.PLAIN, 20));
         btnBack.setFont(new Font("Arial", Font.PLAIN, 20));
 
-        lblSettings.setBounds(275, 50, 250, 60);
+        lblSettings.setHorizontalAlignment(SwingConstants.CENTER);
+        lblSettings.setBounds(0, 50, 734, 60);
         lblPlayers.setBounds(160, 150, 150, 60);
         lblThemes.setBounds(480, 150, 150, 60);
         chckbxTheme1.setBounds(480, 220, 110, 30);
@@ -59,7 +60,7 @@ public class PanelSettings extends JPanel {
         chckbxTheme3.setBounds(480, 300, 110, 30);
         chckbxTheme4.setBounds(480, 340, 110, 30);
         chckbxTheme5.setBounds(480, 380, 120, 30);
-        comboBoxPlayer.setBounds(130, 220, 150, 30);
+        comboBoxPlayer.setBounds(110, 220, 190, 30);
         btnStart.setBounds(490, 500, 120, 40);
         btnBack.setBounds(125, 500, 120, 40);
 
@@ -77,6 +78,7 @@ public class PanelSettings extends JPanel {
 
     }
 
+    public boolean isPlayerVsPlayer(){return "1 vs 1".equals(comboBoxPlayer.getSelectedItem());}
     public void addBackListener(ActionListener listener){btnBack.addActionListener(listener);}
     public void addStartGameListener(ActionListener listener){btnStart.addActionListener(listener);}
     public void addThemesListener(ActionListener listener){
